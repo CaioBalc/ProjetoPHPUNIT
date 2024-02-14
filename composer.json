@@ -1,0 +1,17 @@
+{
+    "name": "imply/projeto-phpunit",
+    "autoload": {
+        "psr-4": {
+            "Imply\\ProjetoPhpunit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "CaioBalc",
+            "email": "balczarekcaio@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}
