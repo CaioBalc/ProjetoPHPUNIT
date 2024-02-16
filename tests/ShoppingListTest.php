@@ -12,37 +12,37 @@ class ShoppingListTest extends TestCase{
         $this->shoppingList = new ShoppingList();
     }
 
-    function testAddItem(){#Verifica se o método addItem() adiciona corretamente itens à lista de compras.
+    function testAddItem(){
         $this->shoppingList->addItem('Maçã');
         $this->shoppingList->addItem('Banana');
         $this->assertEquals(['Maçã', 'Banana'], $this->shoppingList->getItems());
     }
 
-    function testRemoveItem(){#Verifica se o método removeItem() remove corretamente um item da lista de compras.
+    function testRemoveItem(){
         $this->shoppingList->addItem('Maçã');
         $this->shoppingList->addItem('Banana');
         $this->shoppingList->addItem('Mamão');
         $this->shoppingList->removeItem(0);
         $this->assertEquals(['Banana', 'Mamão'], $this->shoppingList->getItems());
     }
-
-    function testAddItemDuplicado(){#Verifica se o método addItem() adiciona corretamente itens à lista de compras.
+    # Exercício A
+    function testAddItemDuplicado(){
         $this->shoppingList->addItem('Maçã');
         $this->shoppingList->addItem('Maçã');
         $this->shoppingList->addItem('Banana');
         $array = array_unique($this->shoppingList->getItems());
         $this->assertEquals(['Maçã', 'Banana'], $array);
     }
-
-    function testNãoRemoveItemInexistente(){#Verifica se o método removeItem() remove corretamente um item da lista de compras.
+    # Exercício B
+    function testNãoRemoveItemInexistente(){
         $this->shoppingList->addItem('Maçã');
         $this->shoppingList->addItem('Banana');
         $this->shoppingList->addItem('Mamão');
         $this->shoppingList->removeItem(5);
         $this->assertEquals(['Maçã', 'Banana', 'Mamão'], $this->shoppingList->getItems());
     }
-
-    function testClearItems(){#Verifica se o método clearItems() remove todos os itens da lista de compras.
+    # Exercício C
+    function testClearItems(){
         $this->shoppingList->addItem('Maçã');
         $this->shoppingList->addItem('Banana');
         $this->shoppingList->clearItems();
@@ -50,26 +50,19 @@ class ShoppingListTest extends TestCase{
     }
     
 }
+?>
 
-/*
-public function testSoma(){
-        $classe = new Classe();
-        $resultado = $classe->somar(2, 3);
-        $this->assertEquals(5, $resultado);
-}
-*/
+a) Qual é o propósito da classe ShoppingList?
+Simular uma lista de compras, podendo adicionar itens, obtê-los, removê-los da lista e limpar todos eles da lista.
 
-/*
-    function testAddItem(){#Verifica se o método addItem() adiciona corretamente itens à lista de compras.
-        $this->shoppingList->addItem('Maçã');
-        $this->shoppingList->addItem('Maçã');
-        $this->shoppingList->addItem('Banana');
-        // $this->shoppingList->addItem('Banana');
-        // $this->assertEquals(['Maçã', 'Banana'], $this->shoppingList->getItems());
-        #$array = ['Maçã', 'Maçã'];
-        $array = array_unique($this->shoppingList->getItems());
-        $this->assertEquals(['Maçã', 'Banana'], $array);
-        #$this->assertContainsOnly('Maçã', $this->shoppingList->getItems(), true);
-        #$this->assertEquals($array, $this->shoppingList->getItems());
-    }
-*/
+b) Quais são os métodos disponíveis na classe ShoppingList e o que cada um deles faz?
+- addItem($item): Adiciona um item à lista de compras.
+- getItems(): Retorna todos os itens para à lista.
+- removeItem($index): Remove um item da lista.
+- clearItems(): Remove todos os itens da lista.
+
+c) Explique o que é testado no método testAddItem().
+A funcionalidade do método addItem() na classe ShoppingList, adicionando 2 itens à lista e verificando se a inserção ocorreu corretamente.
+
+d) Qual é a finalidade do método testRemoveItem() e o que ele verifica?
+Verificar a funcionalidade do método removeItem() na classe ShoppingList, adicionando 3 itens à lista e removendo um deles, então verificando se a remoção ocorreu corretamente.
